@@ -7,5 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Print push tag
+      - name: Print push tag directly
         run: echo ${GITHUB_REF#refs/*/}
+      - name: Print push tag via variable
+        run: PUSH_TAG=${GITHUB_REF#refs/*/} && echo $PUSH_TAG
